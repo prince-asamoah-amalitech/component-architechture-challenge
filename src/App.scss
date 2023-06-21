@@ -2,9 +2,21 @@
 @import './scss/colors';
 @import './scss/spacing';
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+#root {
+    height: 100vh;
+    overflow: auto;
+}
+
 body {
     font-size: inherit;
     font-weight: $body-font-weight;
+    margin: 0;
 }
 
 h1 {
