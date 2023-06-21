@@ -1,0 +1,11 @@
+@import './scss/typography';
+
+body {
+    font-size: inherit;
+    font-weight: $body-font-weight;
+}
+
+h1 {
+    font-size: $text-large;
+    font-weight: $heading-font-weight;
+}
