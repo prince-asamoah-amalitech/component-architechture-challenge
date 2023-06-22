@@ -1,9 +1,14 @@
+@import '../../assets/scss/spacing';
+
 main {
-    background-color: aquamarine;
     height: 100vh;
     display: flex;
 
     & > section {
         flex: 1;
+    }
+
+    .right-section {
+        padding: $space-4;
     }
 }
