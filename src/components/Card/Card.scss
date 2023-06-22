@@ -1,0 +1,18 @@
+@import '../../../src/assets/scss/typography';
+@import '../../../src/assets/scss/colors';
+@import '../../../src/assets/scss/spacing';
+
+.card {
+    border-radius: 8px;
+    padding: $space-3;
+    width: 172px;
+    height: 168px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        font-size: $text-medium;
+        margin: 0;
+    }
+}
