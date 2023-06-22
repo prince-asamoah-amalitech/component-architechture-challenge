@@ -23,3 +23,16 @@ h1 {
     font-size: $text-large;
     font-weight: $heading-font-weight;
 }
+
+button {
+    font-size: inherit;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
