@@ -1,10 +1,13 @@
 import './OnBoardingPage.scss';
+import PageLeftSection from '../../template/PageLeftSection';
+import PageRightSection from '../../template/PageRightSection';
+import RegisterBackgroundImage from '../../assets/images/register.png';
 
 export default function () {
     return (
         <main>
-            <section>Section 1</section>
-            <section>Section 2</section>
+            <PageLeftSection imageSrc={RegisterBackgroundImage}/>
+            <PageRightSection/>
         </main>
     );
 }
