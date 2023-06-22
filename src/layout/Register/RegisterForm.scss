@@ -1,0 +1,53 @@
+@import '../../assets/scss/spacing';
+@import '../../assets/scss/colors';
+
+.register-form {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: $space-3;
+        margin-top: $space-2;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: $space-3;
+        width: 42.08%;
+
+        
+        h1 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: $space-2;
+        }
+
+        button.secondary {
+            gap: $space-3;
+        }
+
+        footer {
+            p {
+                text-align: center;
+                color: $gray-4;
+            }
+
+            a {
+                color: $pure-blue;
+                font-weight: 600;
+                text-decoration: none;
+                padding-left: $space-1;
+
+                &:hover {
+                    color: $cyan-blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
