@@ -1,10 +1,16 @@
 import './Input.scss';
 
-export default function Input() {
+interface InputProps extends React.HTMLProps<HTMLInputElement>{
+    id: string;
+    type?: string;
+    labelText: string;
+}
+
+export default function Input({type = 'text', id, labelText, ...rest}: InputProps) {
     return (
         <div className="form-input">
-            <label htmlFor="fullName">Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder='John Doe'/>
+            <label htmlFor={id}>{labelText}</label>
+            <input type={type} id={id} {...rest}/>
         </div>
     );
 }
