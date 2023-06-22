@@ -1,0 +1,12 @@
+@import '../../assets/scss/spacing';
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $space-2;
+
+    .steps {
+        display: flex;
+        place-items: center;
+    }
+}
