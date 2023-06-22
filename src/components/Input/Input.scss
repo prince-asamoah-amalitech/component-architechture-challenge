@@ -8,14 +8,14 @@
 
     input {
         font-size: inherit;
-        border: 1px solid $gray-1;
+        border: 1px solid $gray-2;
         height: 40px;
         outline: none;
         padding: 0 $space-2;
         border-radius: 4px;
 
         &::placeholder {
-            color: $gray-1;
+            color: $gray-2;
         }
 
         &:focus {
@@ -24,6 +24,6 @@
     }
 
     label {
-        color: $gray-1;
+        color: $gray-2;
     }
 }
