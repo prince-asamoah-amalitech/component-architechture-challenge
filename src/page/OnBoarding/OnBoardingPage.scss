@@ -1,0 +1,9 @@
+main {
+    background-color: aquamarine;
+    height: 100vh;
+    display: flex;
+
+    & > section {
+        flex: 1;
+    }
+}
