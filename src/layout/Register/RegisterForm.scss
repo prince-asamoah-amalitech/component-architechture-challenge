@@ -1,12 +1,10 @@
 @import '../../assets/scss/spacing';
 @import '../../assets/scss/colors';
+@import '../../assets/scss//layout';
 
 .register-form {
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    @include container;
+    
     .buttons {
         display: flex;
         flex-direction: column;
@@ -20,7 +18,7 @@
         gap: $space-3;
         width: 42.08%;
 
-        
+
         h1 {
             text-align: center;
             margin: 0;
