@@ -13,15 +13,19 @@
     overflow: auto;
 }
 
+body, h1, p {
+    margin: 0;
+}
+
 body {
     font-size: inherit;
     font-weight: $body-font-weight;
-    margin: 0;
 }
 
 h1 {
     font-size: $text-large;
     font-weight: $heading-font-weight;
+    margin-bottom: $space-1;
 }
 
 button {
