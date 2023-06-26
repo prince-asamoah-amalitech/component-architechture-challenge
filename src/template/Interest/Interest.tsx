@@ -16,6 +16,25 @@ interface InterestProps {
     handleGoToPreviousStep: () => void;
 }
 
+interface OptionsItemProps {
+    id: string;
+    title: string;
+    color: string;
+}
+
+function OptionsItem({ title, color, id }: OptionsItemProps) {
+    return (
+        <li>
+            <Card title={title} className={color}>
+                <label>
+                    <input type="checkbox" id={id} name={id} value={id} />
+                    <span></span>
+                </label>
+            </Card>
+        </li>
+    );
+}
+
 export default function Interest({
     steps,
     handleGoToNextStep,
@@ -39,58 +58,26 @@ export default function Interest({
                             </p>
                         </header>
                         <ul className="options">
-                            <li>
-                                <Card title="Gaming" className='magenta'>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            id="gaming"
-                                            name="gaming"
-                                            value="gaming"
-                                        />
-                                        <span></span>
-                                    </label>
-                                </Card>
-                            </li>
-                            <li>
-                                <Card title="Fashion" className='green'>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            id="fashion"
-                                            name="fashion"
-                                            value="fashion"
-                                        />
-                                        <span></span>
-                                    </label>
-                                </Card>
-                            </li>
-                            <li>
-                                <Card title="Music" className='redish-orange'>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            id="music"
-                                            name="music"
-                                            value="music"
-                                        />
-                                        <span></span>
-                                    </label>
-                                </Card>
-                            </li>
-                            <li>
-                                <Card title="Reading" className='pure-blue-1'>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            id="reading"
-                                            name="reading"
-                                            value="reading"
-                                        />
-                                        <span></span>
-                                    </label>
-                                </Card>
-                            </li>
+                            <OptionsItem
+                                id="gaming"
+                                title="Gaming"
+                                color="magenta"
+                            />
+                            <OptionsItem
+                                id="fashion"
+                                title="Fashion"
+                                color="green"
+                            />
+                            <OptionsItem
+                                id="music"
+                                title="Music"
+                                color="redish-orange"
+                            />
+                            <OptionsItem
+                                id="reading"
+                                title="Reading"
+                                color="pure-blue-1"
+                            />
                         </ul>
                         <Button
                             type="button"
