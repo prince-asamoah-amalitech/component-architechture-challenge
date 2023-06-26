@@ -59,7 +59,7 @@ export default function Register({
                             >
                                 Submit
                             </Button>
-                            <Button className="secondary">
+                            <Button>
                                 <GoogleLogo />
                                 Sign up with Google
                             </Button>
