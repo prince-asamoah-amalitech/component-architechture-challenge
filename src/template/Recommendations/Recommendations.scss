@@ -1,0 +1,97 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/spacing';
+@import '../../assets/scss/layout';
+@import '../../assets/scss/typography';
+
+.recommendations {
+    @include container;
+
+    form {
+        width: 27.77vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 7.93vh;
+
+        header {
+            text-align: center;
+
+            p {
+                margin-top: 3.125vh;
+            }
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $space-2;
+            margin-top: 4.29vh;
+
+            li {
+                input[type='checkbox'] {
+                    display: none;
+
+                    &:checked + span {
+                        color: $white;
+                        background-color: $pure-blue;
+                        outline: none;
+                        transition: all 0.2s;
+                    }
+
+                    &:checked + span::before {
+                        content: url('../../assets/icons/checkmark-white.svg');
+                        width: 24px;
+                        height: 24px ;
+                        position: relative;
+                        top: 2px;
+                        transition: transform 0.3s ease-in-out;
+                    }
+                }
+
+                span {
+                    text-align: center;
+                    color: inherit;
+                    width: 232px;
+                    border: 1px solid $gray-1;
+                    border-radius: 25px;
+                    padding: 6px 0;
+                    white-space: nowrap;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    -webkit-tap-highlight-color: transparent;
+                    transition: all 0.2s;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: $space-1;
+
+                    &:hover {
+                        background-color: $pure-blue;
+                        color: $white;
+                    }
+
+                    &::before {
+                        content: '\2B';
+                        font-size: 24px;
+                        transition: transform 0.3s ease-in-out;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    button {
+        width: 232px;
+        margin-top: 17.03vh;
+    }
+}
