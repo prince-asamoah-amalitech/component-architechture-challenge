@@ -15,6 +15,22 @@ interface RecommendationsProps {
     handleGoToNextStep: () => void;
 }
 
+interface OptionsItemProps {
+    children: string;
+    id: string;
+}
+
+function OptionsItem({ id, children }: OptionsItemProps) {
+    return (
+        <li>
+            <label>
+                <input type="checkbox" id={id} value={id} name={id} />
+                <span>{children}</span>
+            </label>
+        </li>
+    );
+}
+
 export default function Recommendations({
     steps,
     handleGoToPreviousStep,
@@ -32,46 +48,18 @@ export default function Recommendations({
                             <p>This will help us make great recommendations.</p>
                         </header>
                         <ul className="options" aria-label="recommendations">
-                            <li>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        id="socialInteraction"
-                                        value="socialInteraction"
-                                    />
-                                    <span>Social Interaction</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        id="personalDevelopment"
-                                        value="personalDevelopment"
-                                    />
-                                    <span>Personal development</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label htmlFor="entertainmentAndFun">
-                                    <input
-                                        type="checkbox"
-                                        id="entertainmentAndFun"
-                                        value="entertainmentAndFun"
-                                    />
-                                    <span>Entertainment and Fun</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label htmlFor="rewardsAndRecognition">
-                                    <input
-                                        type="checkbox"
-                                        id="rewardsAndRecognition"
-                                        value="rewardsAndRecognition"
-                                    />
-                                    <span>Rewards and recognition</span>
-                                </label>
-                            </li>
+                            <OptionsItem id="socialInteraction">
+                                Social Interaction
+                            </OptionsItem>
+                            <OptionsItem id="personalDevelopment">
+                                Personal development
+                            </OptionsItem>
+                            <OptionsItem id="entertainmentAndFun">
+                                Entertainment and Fun
+                            </OptionsItem>
+                            <OptionsItem id="rewardsAndRecognition">
+                                Rewards and recognition
+                            </OptionsItem>
                         </ul>
                         <Button
                             className="primary"
