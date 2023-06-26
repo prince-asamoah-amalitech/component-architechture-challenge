@@ -1,0 +1,91 @@
+@import '../../assets/scss/layout';
+@import '../../assets/scss/spacing';
+@import '../../assets/scss/colors';
+
+.interest {
+    @include container;
+
+    form {
+        @include container;
+        width: 400px;
+        padding: 0 $space-2;
+        margin-top: 4.16vh;
+
+        header {
+            text-align: center;
+
+            p {
+                margin-top: $space-3;
+            }
+        }
+
+        .options {
+            display: grid;
+            grid-template: auto auto / auto auto;
+            place-content: center;
+            gap: $space-2;
+            margin-top: $space-3;
+            width: 24.93vw;
+
+            li {
+                input[type='checkbox'] {
+                    display: none;
+
+                    &:checked + span {
+                        background-color: $white;
+                        transition: all 0.2s;
+                    }
+
+                    &:checked + span::before {
+                        content: 'Added';
+                    }
+
+                    &:checked + span::after {
+                        content: url('../../assets/icons/checkmark.svg');
+                        color: inherit;
+                        position: relative;
+                        bottom: 4px;
+                        width: 16px;
+                        height: 16px;
+                        transition: transform 0.3s ease-in-out;
+                    }
+                }
+
+                span {
+                    border: 1px solid $gray-2;
+                    padding: $space-1 $space-3;
+                    border-radius: 4px;
+                    width: fit-content;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: $space-1;
+
+                    &::before {
+                        content: 'Add'
+                    }
+                }
+
+                .magenta {
+                    background-color: $magenta;
+                }
+
+                .green {
+                    background-color: $green;
+                }
+
+                .redish-orange {
+                    background-color: $redish-orange;
+                }
+
+                .pure-blue-1 {
+                    background-color: $pure-blue-1;
+                }
+            }
+        }
+
+        button {
+            margin-top: 8.58vh;
+        }
+    }
+}
