@@ -1,5 +1,10 @@
 import './App.scss';
+import OnBoardingPage from './page/OnBoarding/OnBoardingPage';
 
 export default function App() {
-    return <h1>Component Architecture Challenge</h1>;
+    return (
+        <>
+            <OnBoardingPage />
+        </>
+    );
 }
