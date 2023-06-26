@@ -2,12 +2,20 @@ import { ButtonHTMLAttributes } from 'react';
 import './Button.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string;
+    primary?: boolean;
     children: React.ReactNode;
 }
 
-export default function Button({className, children, ...rest}: ButtonProps) {
+export default function Button({
+    children,
+    primary,
+    ...rest
+}: ButtonProps) {
+  const buttonClass = primary !== undefined ? 'primary' : 'secondary';
+
   return (
-    <button className={`button ${className}`} {...rest}>{children}</button>
-  )
+      <button className={`${buttonClass}`} {...rest}>
+          {children}
+      </button>
+  );
 }
