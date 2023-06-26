@@ -1,0 +1,52 @@
+@import '../../assets/scss/layout';
+@import '../../assets/scss/spacing';
+@import '../../assets/scss/typography';
+
+.add-photo {
+    @include container;
+    margin-top: 6.90vh;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        header {
+            text-align: center;
+        }
+
+        input[type='file'] {
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: $space-2;
+            margin-top: 31.47vh;
+
+            label.primary {
+                width: 232px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            a {
+                font-size: $text-small;
+                text-align: center;
+                margin-top: $space-1;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
