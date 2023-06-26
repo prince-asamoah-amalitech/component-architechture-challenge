@@ -1,16 +1,18 @@
 @import '../../../src/assets/scss/colors';
 @import '../../../src/assets/scss/spacing';
+@import '../../../src/assets/scss/typography';
 
-.form-input {
+
+.input {
     display: flex;
     flex-direction: column;
     gap: $space-1;
 
     input {
         font-size: inherit;
-        border: 1px solid $gray-2;
+        outline: 1px solid $gray-2;
         height: 40px;
-        outline: none;
+        border: none;
         padding: 0 $space-2;
         border-radius: 4px;
 
@@ -25,5 +27,10 @@
 
     label {
         color: $gray-2;
+    }
+
+    p { 
+        font-size: $text-small;
+        color: red;
     }
 }
