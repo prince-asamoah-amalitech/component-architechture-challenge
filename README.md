@@ -38,8 +38,40 @@ It is allowed to brainstorm as a team and work together
 
 ## Duration
 
-The challenge will span from *Jun 15, 2023*, to *Jun 27, 2023*
+The challenge span from *Jun 15, 2023*, to *Jun 27, 2023*
 
-## Submission
+## Techonologies Used
 
-Comment with a summary of your method of implementation and a link to the repo (amalitech github only)
+- React Typescript with Vite Server
+- Sass
+
+## Requirements
+
+- NodeJs (version 18 or higher)
+- Node package manager (npm) (version 8 or higher)
+
+### Run Localy
+
+1. Clone project
+
+    ```shell
+    git clone https://github.com/prince-asamoah-amalitech/component-architechture-challenge.git
+    ```
+
+2. Navigate to project
+
+    ```shell
+    cd component-architecture-challenge
+    ```
+
+3. Install project dependecies
+
+    ```shell
+    npm install
+    ```
+
+4. Start server
+
+    ```shell
+    npm dev
+    ```
