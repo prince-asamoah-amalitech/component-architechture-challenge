@@ -53,8 +53,8 @@ export default function Register({
                         />
                         <div className="buttons">
                             <Button
+                                primary
                                 type="button"
-                                className="primary"
                                 onClick={handleGoToNextStep}
                             >
                                 Submit

@@ -79,11 +79,7 @@ export default function Interest({
                                 color="pure-blue-1"
                             />
                         </ul>
-                        <Button
-                            type="button"
-                            className="primary"
-                            onClick={handleGoToNextStep}
-                        >
+                        <Button primary type="button" onClick={handleGoToNextStep}>
                             Continue
                         </Button>
                     </form>

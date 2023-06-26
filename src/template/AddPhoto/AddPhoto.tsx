@@ -39,7 +39,7 @@ export default function AddPhoto({
                         </header>
                         <Avatar />
                         <div className="buttons">
-                           {photo &&  <Button className="primary" onClick={handleGoToNextStep}>Continue</Button>}
+                           {photo &&  <Button primary onClick={handleGoToNextStep}>Continue</Button>}
                             <label className="button primary">
                                 <input type="file" id="photo" name="photo" />
                                 Upload a photo
