@@ -13,13 +13,19 @@
     overflow: auto;
 }
 
-body, h1, p {
+body,
+h1,
+p,
+ul,
+li {
     margin: 0;
+    padding: 0;
 }
 
 body {
     font-size: inherit;
     font-weight: $body-font-weight;
+    overflow: auto;
 }
 
 h1 {
@@ -28,7 +34,8 @@ h1 {
     margin-bottom: $space-1;
 }
 
-button {
+button,
+.button {
     font-size: inherit;
     border: none;
     background-color: transparent;
@@ -39,4 +46,17 @@ button {
     &:hover {
         cursor: pointer;
     }
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+ul, li {
+    list-style: none;
 }
