@@ -6,6 +6,7 @@ export default function PageLeftSection({ imageSrc }: PageLeftSectionProps) {
     return (
         <section
             style={{ background: `url(${imageSrc}) no-repeat`, backgroundSize: 'cover' }}
+            className="left-section"
         ></section>
     );
 }
