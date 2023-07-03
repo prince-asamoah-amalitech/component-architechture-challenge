@@ -44,6 +44,7 @@ export default function Input({
                 id={id}
                 {...rest}
                 ref={inputRef}
+                defaultValue={''}
                 onInvalid={(e) => {
                     e.preventDefault();
                     setIsValidating(true);
