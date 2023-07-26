@@ -1,3 +1,4 @@
+import { useContext} from "react";
 import './Recommendations.scss';
 import recommendationsBackgroundImage from '../../assets/images/recommendations.png';
 
@@ -5,15 +6,7 @@ import Button from '../../components/Button/Button';
 import PageLeftSection from '../../layout/PageLeftSection';
 import PageRightSection from '../../layout/PageRightSection';
 import Navigation from '../../components/Navigation/Navigation';
-
-interface RecommendationsProps {
-    steps: {
-        stepsNumber: number;
-        stepsTotal: number;
-    };
-    handleGoToPreviousStep: () => void;
-    handleGoToNextStep: () => void;
-}
+import { OnBoardingDispatchContext } from "../../context/OnBoardingContext";
 
 interface OptionsItemProps {
     children: string;
@@ -31,16 +24,15 @@ function OptionsItem({ id, children }: OptionsItemProps) {
     );
 }
 
-export default function Recommendations({
-    steps,
-    handleGoToPreviousStep,
-    handleGoToNextStep,
-}: RecommendationsProps) {
+export default function Recommendations() {
+    const dispatch = useContext(OnBoardingDispatchContext);
+    const handleGoToNextStep = () => dispatch?.({type: "next_step"});
+    
     return (
         <>
             <PageLeftSection imageSrc={recommendationsBackgroundImage} />
             <PageRightSection>
-                <Navigation {...{ steps, handleGoToPreviousStep }} />
+                <Navigation />
                 <div className="recommendations">
                     <form>
                         <header>

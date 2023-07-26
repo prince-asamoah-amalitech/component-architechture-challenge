@@ -1,20 +1,13 @@
 import './Interest.scss';
 import interestBackgroundImage from '../../assets/images/interest.png';
+import { useContext } from 'react';
 
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
 import Navigation from '../../components/Navigation/Navigation';
 import PageLeftSection from '../../layout/PageLeftSection';
 import PageRightSection from '../../layout/PageRightSection';
-
-interface InterestProps {
-    steps: {
-        stepsNumber: number;
-        stepsTotal: number;
-    };
-    handleGoToNextStep: () => void;
-    handleGoToPreviousStep: () => void;
-}
+import { OnBoardingDispatchContext } from '../../context/OnBoardingContext';
 
 interface OptionsItemProps {
     id: string;
@@ -35,16 +28,16 @@ function OptionsItem({ title, color, id }: OptionsItemProps) {
     );
 }
 
-export default function Interest({
-    steps,
-    handleGoToNextStep,
-    handleGoToPreviousStep,
-}: InterestProps) {
+export default function Interest() {
+    const dispatch = useContext(OnBoardingDispatchContext);
+
+    const handleGoToNextStep = () => dispatch?.({type: "next_step"});
+    
     return (
         <>
             <PageLeftSection imageSrc={interestBackgroundImage} />
             <PageRightSection>
-                <Navigation {...{ steps, handleGoToPreviousStep }} />
+                <Navigation />
                 <div className="interest">
                     <form>
                         <header>
@@ -79,7 +72,11 @@ export default function Interest({
                                 color="pure-blue-1"
                             />
                         </ul>
-                        <Button primary type="button" onClick={handleGoToNextStep}>
+                        <Button
+                            primary
+                            type="button"
+                            onClick={handleGoToNextStep}
+                        >
                             Continue
                         </Button>
                     </form>

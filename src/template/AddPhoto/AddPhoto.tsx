@@ -1,34 +1,25 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import './AddPhoto.scss';
 import addPhotoBackgroundImage from '../../assets/images/add-photo.png';
+import { OnBoardingDispatchContext } from '../../context/OnBoardingContext';
 import Avatar from '../../components/Avatar/Avatar';
 import PageLeftSection from '../../layout/PageLeftSection';
 import PageRightSection from '../../layout/PageRightSection';
 import Navigation from '../../components/Navigation/Navigation';
 import Button from '../../components/Button/Button';
 
-interface AddPhotoProps {
-    steps: {
-        stepsNumber: number;
-        stepsTotal: number;
-    };
-    handleGoToNextStep: () => void;
-    handleGoToPreviousStep: () => void;
-}
+export default function AddPhoto() {
+    const [photo] = useState<File | null>(null);
+    const dispatch = useContext(OnBoardingDispatchContext);
 
-export default function AddPhoto({
-    steps,
-    handleGoToNextStep,
-    handleGoToPreviousStep,
-}: AddPhotoProps) {
-    const[photo] = useState<File | null>(null);
+    const handleGoToNextStep = () => dispatch?.({ type: 'next_step' });
 
     return (
         <>
             <PageLeftSection imageSrc={addPhotoBackgroundImage} />
             <PageRightSection>
-                <Navigation {...{ steps, handleGoToPreviousStep }} />
+                <Navigation />
                 <div className="add-photo">
                     <form>
                         <header>
@@ -39,7 +30,11 @@ export default function AddPhoto({
                         </header>
                         <Avatar />
                         <div className="buttons">
-                           {photo &&  <Button primary onClick={handleGoToNextStep}>Continue</Button>}
+                            {photo && (
+                                <Button primary onClick={handleGoToNextStep}>
+                                    Continue
+                                </Button>
+                            )}
                             <label className="button primary">
                                 <input type="file" id="photo" name="photo" />
                                 Upload a photo

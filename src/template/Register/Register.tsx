@@ -7,22 +7,14 @@ import Button from '../../components/Button/Button';
 import PageLeftSection from '../../layout/PageLeftSection';
 import PageRightSection from '../../layout/PageRightSection';
 import Navigation from '../../components/Navigation/Navigation';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useContext } from 'react';
+import {
+    OnBoardingDispatchContext,
+} from '../../context/OnBoardingContext';
 
-interface RegisterProps {
-    handleGoToNextStep: () => void;
-    handleGoToPreviousStep: () => void;
-    steps: {
-        stepsNumber: number;
-        stepsTotal: number;
-    };
-}
 
-export default function Register({
-    steps,
-    handleGoToNextStep,
-    handleGoToPreviousStep,
-}: RegisterProps) {
+export default function Register() {
+    const dispatch = useContext(OnBoardingDispatchContext);
 
     function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -33,7 +25,7 @@ export default function Register({
         const password = data.get('password');
 
         if (fullName && email && password) {
-            handleGoToNextStep();
+            dispatch?.({ type: 'next_step' });
         }
     }
 
@@ -41,9 +33,7 @@ export default function Register({
         <>
             <PageLeftSection imageSrc={registerBackgroundImage} />
             <PageRightSection>
-                <Navigation
-                    {...{ steps, handleGoToPreviousStep, handleGoToNextStep }}
-                />
+                <Navigation />
                 <div className="register">
                     <form onSubmit={handleSubmit}>
                         <h1>Create Account</h1>
