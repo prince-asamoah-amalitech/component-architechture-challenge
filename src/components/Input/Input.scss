@@ -2,7 +2,6 @@
 @import '../../../src/assets/scss/spacing';
 @import '../../../src/assets/scss/typography';
 
-
 .input {
     display: flex;
     flex-direction: column;
@@ -26,10 +25,10 @@
     }
 
     label {
-        color: $gray-2;
+        font-weight: 500;
     }
 
-    p { 
+    p {
         font-size: $text-small;
         color: red;
     }
