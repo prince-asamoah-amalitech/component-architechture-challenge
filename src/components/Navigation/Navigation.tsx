@@ -1,29 +1,24 @@
 import './Navigation.scss';
 import { ReactComponent as LeftArrow } from '../../assets/icons/left-arrow.svg';
+import { OnBoardingDispatchContext, OnBoardingStateContext } from '../../context/OnBoardingContext';
+import { useContext } from 'react';
 
-interface HeaderProps {
-    steps: {
-        stepsNumber: number;
-        stepsTotal: number;
-    };
-    handleGoToPreviousStep: () => void;
-}
-export default function Navigation({
-    steps,
-    handleGoToPreviousStep,
-}: HeaderProps) {
+export default function Navigation() {
+    const state = useContext(OnBoardingStateContext);
+    const dispatch = useContext(OnBoardingDispatchContext);
+
     return (
         <div className="navigation">
-            {steps.stepsNumber !== 1 && (
-                <a title="Go Back" onClick={handleGoToPreviousStep}>
+            {state?.currentStep !== 1 && (
+                <a title="Go Back" onClick={() => dispatch?.({ type: 'previous_step'})}>
                     <LeftArrow />
                     <span>Back</span>
                 </a>
             )}
             <div className="steps">
                 <span>
-                    <strong>Step {steps.stepsNumber} </strong>
-                    <span>of {steps.stepsTotal}</span>
+                    <strong>Step {state?.currentStep} </strong>
+                    <span>of {state?.totalSteps}</span>
                 </span>
             </div>
             <a title="Exit">Exit</a>
