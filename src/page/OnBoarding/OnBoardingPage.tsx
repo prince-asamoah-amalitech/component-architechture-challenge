@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './OnBoardingPage.scss';
 
 import AddPhoto from '../../template/AddPhoto/AddPhoto';
@@ -6,6 +6,7 @@ import Recommendations from '../../template/Recommendations/Recommendations';
 import Interest from '../../template/Interest/Interest';
 import Complete from '../../template/Complete/Complete';
 import Register from '../../template/Register/Register';
+import { OnBoardingStateContext } from '../../context/OnBoardingContext';
 
 const templateComponents = [
     Register,
@@ -16,36 +17,18 @@ const templateComponents = [
 ];
 
 export default function OnBoardingPage() {
-    const [stepsNumber, setStepsNumber] = useState(1);
-    const [stepsTotal] = useState(4);
-
-    const handleGoToNextStep = useCallback(() => {
-        const nextStepsNumber = stepsNumber + 1;
-        setStepsNumber(nextStepsNumber);
-    }, [stepsNumber]);
-
-    const handleGoToPreviousStep = useCallback(() => {
-        const nextStepsNumber = stepsNumber - 1;
-        setStepsNumber(nextStepsNumber);
-    }, [stepsNumber]);
-
-    const nextComponentProps = useMemo(
-        () => ({
-            steps: { stepsNumber, stepsTotal },
-            handleGoToNextStep,
-            handleGoToPreviousStep,
-        }),
-        [stepsNumber,stepsTotal, handleGoToNextStep, handleGoToPreviousStep]
-    );
+    const state = useContext(OnBoardingStateContext);
 
     const [nextTemplateComponent, setNextTemplateComponent] = useState(
-        <Register {...nextComponentProps} />
+        <Register />
     );
 
     useEffect(() => {
-        const Component = templateComponents[stepsNumber - 1];
-        setNextTemplateComponent(<Component {...nextComponentProps} />);
-    }, [stepsNumber, nextComponentProps]);
+        if (state?.currentStep) {
+            const Component = templateComponents[state.currentStep - 1];
+            setNextTemplateComponent(<Component />);
+        }
+    }, [state?.currentStep, state]);
 
     return <main>{nextTemplateComponent}</main>;
 }
